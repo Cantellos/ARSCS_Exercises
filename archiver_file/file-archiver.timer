@@ -1,0 +1,17 @@
+# nome e cognome: andrea cantelli
+# matricola: 156529
+#
+# path: /home/andre/.config/systemd/user/file-archiver.timer
+#
+# comando per abilitare il timer: systemctl --user enable file-archiver.timer
+# comando per avviare il timer: systemctl --user start file-archiver.timer
+
+[Unit]
+Description=file archiver timer
+
+[Timer]
+Unit=file-archiver.service
+OnCalendar=Sat,Sun *-*-* 04:00
+
+[Install]
+WantedBy=timers.target

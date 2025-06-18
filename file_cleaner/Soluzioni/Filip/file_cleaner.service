@@ -1,0 +1,14 @@
+#first and last name:
+# serial number:
+#
+# path:
+
+
+[Unit]
+Description=File Cleaner Service in Python
+
+[Service]
+ExecStart=/usr/bin/python3 /home/filippo/Desktop/file_cleaner/file_cleaner.py --path /home/filippo/Desktop --extension .tmp
+
+[Install]
+WantedBy=multi-user.target

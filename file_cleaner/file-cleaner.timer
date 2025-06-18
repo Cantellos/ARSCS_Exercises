@@ -1,0 +1,14 @@
+# first and last name: andrea cantelli
+# serial number: 156529
+#
+# path: 
+
+[Unit]
+Description=File Cleaner Timer
+
+[Timer]
+Unit=file-cleaner.service
+OnCalendar=Mon..Fri *-*-* *:00/10
+
+[Install]
+WantedBy=timers.target

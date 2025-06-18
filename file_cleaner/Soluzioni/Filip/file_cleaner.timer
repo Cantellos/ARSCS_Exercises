@@ -1,0 +1,17 @@
+# first and last name:
+# serial number:
+#
+# path:
+#
+# command to enable the timer:
+# command to start the timer:
+
+[Unit]
+    Description=Timer for file_cleaner service
+
+[Timer]
+    Unit=file_cleaner.service
+    OnCalendar=Mon..Fri *-*-* *:00/10
+
+[Install]
+    WantedBy=timers.target

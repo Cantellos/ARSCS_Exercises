@@ -1,0 +1,10 @@
+# nome e cognome: andrea cantelli
+# matricola: 156529
+#
+# path: /home/andre/.config/systemd/user/file-archiver.service
+
+[Unit]
+Description=file archiver
+
+[Service]
+ExecStart=/usr/bin/python3 /home/andre/file-archiver/app.py --path %h/mydocs --seconds 30
