@@ -1,0 +1,10 @@
+[Unit]
+Description=cpu logger
+
+[Service]
+ExecStart= /usr/bin/python3 /mnt/c/Users/andre/Documents/GitHub/ARSCS_Exercises/cpu_logger/cpu_logger.py --interval 5
+Restart=on_failure
+RestartSec=1
+
+[Install]
+WantedBy=default.target
