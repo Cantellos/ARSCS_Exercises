@@ -1,0 +1,21 @@
+-F
+-t nat -F
+
+-P INPUT DROP
+-P FORWARD DROP
+
+-A INPUT -i eht1 -p icmp -j ACCEPT
+
+-A INPUT -i eht1 -p tcp --dport 22 -j ACCEPT
+
+-A FORWARD -i eht1 -p tcp --dport 80 -j ACCEPT
+-A FORWARD -i eht0 -p tcp --dport 80 -j ACCEPT
+-A FORWARD -i eht1 -p tcp --dport 443 -j ACCEPT
+-A FORWARD -i eht0 -p tcp --dport 443 -j ACCEPT
+
+-A FORWARD -m conntrack --ctstate ENSTABLISHED,RELATED -j ACCEPT
+
+-t nat -A POSTROUTING -o eht0 -j SNAT --to-source 203.0.113.10
+
+-t nat -A PREROUTING -i eth0 -p tcp -dport 443 -j DNAT --to-destination 192.168.50.20:30443
+-A FORWARD -i eth0 -o eth1 -p tcp -dport 30443 -d 192.168.50.20 -j ACCEPT
